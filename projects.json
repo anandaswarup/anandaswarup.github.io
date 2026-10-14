@@ -1,0 +1,238 @@
+[
+  {
+    "slug": "reward-evaluation",
+    "title": "What does a reward model really learn?",
+    "category": "Evaluation",
+    "period": "Accepted · ACDSA 2027",
+    "art": "grid",
+    "motif": "INSTRUCTION → JUDGMENT → ACTION",
+    "papers": [
+      0
+    ],
+    "summary": "Testing the gap between reward-score accuracy, policy agreement, and action correctness in language-conditioned navigation.",
+    "question": "When an LLM judge learns to agree with a reference policy, has it learned to choose the right action? This project examines that distinction in a controlled 2-D navigation environment.",
+    "approach": [
+      "Four controlled experiments compare geometric rewards, an LLM judge, and a distilled reward network in a shared gridworld. Language instructions and iterative feedback are used to shape the judge’s decisions.",
+      "A reward network is trained on 258 LLM judgments, with evaluation on 48 held-out situations. The experiments assess both rubric-score error and agreement on selected actions."
+    ],
+    "findings": [
+      "Judge agreement with a rule-based policy increased from 78% to 100% across 64 situations. Feedback could also steer the judge toward an imperfect policy, demonstrating that reference agreement is different from action correctness.",
+      "The distilled network achieved 0.058 rubric-score MAE but only 48% action agreement on the 48 held-out situations. These results are specific to the controlled gridworld and do not establish performance on physical robots."
+    ],
+    "resources": []
+  },
+  {
+    "slug": "caption-evaluation",
+    "title": "Beyond a caption’s benchmark score",
+    "category": "Evaluation",
+    "period": "Accepted · ACDSA 2027",
+    "art": "frames",
+    "motif": "IMAGE / CAPTION / REFERENCE",
+    "papers": [
+      1
+    ],
+    "summary": "A matched comparison of LLM-generated captions and human references on MS COCO.",
+    "question": "What do standard caption metrics tell us about model outputs when humans and models are evaluated under the same reference conditions?",
+    "approach": [
+      "The study evaluates 1,000 LLM-generated captions against 5,000 human references from MS COCO, using BLEU, METEOR, and CIDEr.",
+      "Matched leave-one-out comparisons put model and human captions under identical four-reference conditions. A review of 50 captions examines omissions, additional detail, and reference mismatches."
+    ],
+    "findings": [
+      "Human captions showed higher agreement on BLEU-4 and CIDEr, while METEOR slightly favored model captions. Model outputs averaged 2.27 times the length of human captions.",
+      "Reference agreement is not equivalent to visual correctness. Differences in detail and length matter when interpreting metric scores."
+    ],
+    "resources": []
+  },
+  {
+    "slug": "mri-explanations",
+    "title": "An explanation for every audience?",
+    "category": "Evaluation",
+    "period": "Accepted · ACDSA 2027",
+    "art": "circles",
+    "motif": "READABILITY ≠ RELIABILITY",
+    "papers": [
+      2
+    ],
+    "summary": "Examining readability, safety, and human–AI agreement in audience-targeted explanations of brain MRI images.",
+    "question": "Can audience-specific prompting make an explanation more accessible while preserving reliable image interpretation?",
+    "approach": [
+      "Four audience-specific prompts are evaluated on 400 brain MRI images spanning four classes, yielding 1,594 valid explanations.",
+      "Evaluation covers readability, hallucination, safety, and audience fit. Human and AI ratings are compared on 160 shared responses, and explicit tumor-class mentions are checked against dataset labels."
+    ],
+    "findings": [
+      "Patient and student prompts produced simpler explanations. Exact human–AI agreement on hallucination ratings was only 4%.",
+      "Audience adaptation did not ensure reliable class identification. This is an evaluation of generated explanations, not evidence of clinical diagnostic readiness."
+    ],
+    "resources": []
+  },
+  {
+    "slug": "efficient-translation",
+    "title": "The hidden costs of translation accuracy",
+    "category": "Efficiency",
+    "period": "2025 · PREPRINT",
+    "art": "bars",
+    "motif": "QUALITY / LATENCY / EMISSIONS",
+    "papers": [
+      4
+    ],
+    "summary": "Understanding the trade-offs between translation quality, inference latency, and estimated emissions.",
+    "question": "How much translation quality is traded for faster and less emissions-intensive inference when models are distilled or quantized?",
+    "approach": [
+      "NLLB-200 3.3B and distilled 600M models are benchmarked for English-to-French, Hindi, and Kannada translation, including FP16, INT8, and INT4 variants.",
+      "Evaluation combines Flores+ BLEU scores, inference latency, CodeCarbon estimates, and human accuracy and fluency ratings for translations of 100 conversational sentences."
+    ],
+    "findings": [
+      "The distilled FP32 model showed 71–78% lower latency and 63–65% lower estimated emissions, with a loss of 1.3–3.5 BLEU points in the reported comparisons.",
+      "INT4 translations retained mean human scores above 4.3/5 across all three languages. Emissions are estimates tied to the experimental setup; the findings describe these models, tasks, and measurement conditions."
+    ],
+    "resources": [
+      [
+        "Read preprint",
+        "https://arxiv.org/abs/2509.23990"
+      ]
+    ]
+  },
+  {
+    "slug": "phrase-breaks",
+    "title": "Giving synthetic speech room to breathe",
+    "category": "Speech & language",
+    "period": "2013–2025",
+    "art": "wave",
+    "motif": "TEXT → PHRASING → SPEECH",
+    "papers": [
+      5,
+      7,
+      13,
+      16
+    ],
+    "summary": "A research thread from word-terminal syllables and learned representations to phrase-aware neural text-to-speech.",
+    "question": "How can a text-to-speech system learn where to pause, and how do those pauses change the listening experience?",
+    "approach": [
+      "The early work investigates word-terminal syllables for phrase break prediction in Indian languages (SSW 2013), followed by continuous-valued word representations (Interspeech 2014) and recurrent neural architectures with word embeddings (Interspeech 2016).",
+      "The later work integrates predicted phrase breaks into a Tacotron2–WaveRNN pipeline with dynamic convolutional attention. BERT is fine-tuned for phrase break prediction on LibriTTS, and synthesized stories are assessed in a 70-listener study."
+    ],
+    "findings": [
+      "The later phrase prediction model achieved 92.10 F1, compared with 88.91 for a BiLSTM baseline. Pairwise listening tests favored speech with predicted phrase breaks over synthesis without phrase break prediction.",
+      "Prediction scores and listener preference answer different questions; both inform the evaluation. This thread underpins the Ph.D. thesis on prediction and incorporation of phrase break models in TTS systems."
+    ],
+    "resources": [
+      [
+        "TTS implementation",
+        "https://github.com/anandaswarup/RNN-TTS"
+      ],
+      [
+        "Phrase break prediction code",
+        "https://github.com/anandaswarup/phrase_break_prediction"
+      ]
+    ]
+  },
+  {
+    "slug": "speech-representations",
+    "title": "Representations for speech synthesis",
+    "category": "Speech & language",
+    "period": "2015–2016",
+    "art": "wave",
+    "motif": "CONTEXT / SPECTRUM / SYNTHESIS",
+    "papers": [
+      8,
+      11
+    ],
+    "summary": "Two complementary studies of linguistic context and spectral representations for statistical parametric speech synthesis.",
+    "question": "How should a synthesis system represent linguistic context and the spectral envelope of speech?",
+    "approach": [
+      "The SSW 2016 study augments conventional text features with hidden states from an RNN trained to predict acoustic features. It evaluates this acoustically guided context representation in DNN-based synthesis for Hindi and Telugu using Blizzard Challenge 2015 data.",
+      "The 2015 spectral-envelope study uses maximum spectral amplitudes in sub-bands (MSASB) to parameterize the envelope directly in the spectral domain. The representation is incorporated into the STRAIGHT vocoder and explored in a deep-neural-network synthesis framework."
+    ],
+    "findings": [
+      "The contextual-representation study reports improvements over its baseline DNN system in both objective scores and subjective listening tests for the evaluated Hindi and Telugu data.",
+      "The MSASB study reports analysis-by-synthesis performance comparable to STRAIGHT in objective and subjective evaluation. Its direct spectral parameterization offers a different representation from cepstral-domain alternatives.",
+      "These are complementary representation studies, rather than a single end-to-end benchmark. The publications below describe the individual methods and evaluations."
+    ],
+    "resources": [
+      [
+        "Spectral-envelope study",
+        "https://arxiv.org/abs/1508.00354"
+      ]
+    ]
+  },
+  {
+    "slug": "blizzard-challenge",
+    "title": "Building and evaluating synthetic voices",
+    "category": "Speech & language",
+    "period": "2013–2017",
+    "art": "bars",
+    "motif": "LANGUAGES / SYSTEMS / LISTENERS",
+    "papers": [
+      6,
+      9,
+      10,
+      12,
+      15
+    ],
+    "summary": "Blizzard Challenge work spanning Indian-language evaluation tasks, unit-selection systems, and neural acoustic modeling.",
+    "question": "How can shared speech data and listener evaluations support meaningful comparisons between synthesis systems across languages and speaking styles?",
+    "approach": [
+      "The 2013, 2014, and 2015 challenge overview papers describe Indian-language tasks and listening evaluations. These papers document shared evaluation efforts, distinct from the IIIT Hyderabad system submission papers.",
+      "The 2015 IIIT Hyderabad submission uses unit-selection synthesis for monolingual and multilingual tasks in six Indian languages, with sentence-level Viterbi search and correlation-based overlap addition.",
+      "The 2017 submission examines neural acoustic models for expressive children’s audiobook synthesis. A BLSTM system is selected for submission following held-out objective comparisons with a hybrid architecture."
+    ],
+    "findings": [
+      "Together, the papers document both the design of shared evaluations and the construction of synthesis systems. The 2017 paper reports improvements over DNN and HMM baselines in most evaluations.",
+      "Tasks, languages, and systems differ across challenge years. The collection should be read as a research progression, not as a single comparable performance series."
+    ],
+    "resources": []
+  },
+  {
+    "slug": "pronunciation-mapping",
+    "title": "English words in Telugu speech",
+    "category": "Speech & language",
+    "period": "2013 · ACL",
+    "art": "grid",
+    "motif": "WORDS → PHONES → SPEECH",
+    "papers": [
+      14
+    ],
+    "summary": "Comparing word-to-phone and phone-to-phone mapping for English words in a Telugu text-to-speech system.",
+    "question": "Is word-to-phone mapping better than phone-to-phone mapping for handling English words?",
+    "approach": [
+      "The ACL 2013 study compares English pronunciation strategies using only the native Telugu phone set. An initial comparison uses manually prepared mappings for 10 bilingual utterances and listening evaluations by five native Telugu speakers.",
+      "The work then learns word-to-phone mappings using automatic epsilon scattering for alignment and classification and regression trees. The learned mappings are evaluated on held-out and different-domain data and incorporated into a Telugu TTS system."
+    ],
+    "findings": [
+      "In the initial manual-mapping comparison, word-to-phone mapping received a mean opinion score of 3.48 versus 2.66 for phone-to-phone mapping. It was preferred in 32 of 50 ABX judgments, compared with 4 for phone-to-phone mapping and 14 with no preference.",
+      "The initial listener comparison is small and specific to Telugu. The paper separately evaluates learned mappings, so the manual-mapping result should not be interpreted as the performance of the automated system."
+    ],
+    "resources": [
+      [
+        "ACL Anthology paper",
+        "https://aclanthology.org/P13-2035/"
+      ]
+    ]
+  },
+  {
+    "slug": "hospital-readmission",
+    "title": "Learning patterns in hospital readmission",
+    "category": "Applied ML",
+    "period": "2025 · SPRINGER",
+    "art": "circles",
+    "motif": "CLINICAL DATA → RISK MODELING",
+    "papers": [
+      3
+    ],
+    "summary": "Comparing machine learning approaches to 30-day readmission prediction for diabetic patients.",
+    "question": "How can machine learning identify patterns associated with 30-day hospital readmission in diabetic patients?",
+    "approach": [
+      "Using a public Diabetes Hospital Readmission dataset, the study compares a Random Forest and a deep neural network after data cleaning, normalization, and feature encoding.",
+      "The study also investigates influential clinical factors in readmission prediction. The work is published as a chapter in Emerging Trends in Health Informatics, Medical Devices, and Large Language Models."
+    ],
+    "findings": [
+      "This is a retrospective predictive-modeling study. The publication contains the model comparison; no deployment or prospective clinical validation is claimed here."
+    ],
+    "resources": [
+      [
+        "Publication",
+        "https://doi.org/10.1007/978-3-032-28463-1_18"
+      ]
+    ]
+  }
+]
