@@ -16,9 +16,10 @@ Open http://localhost:8000. The server is bound to loopback. Stop it with Ctrl+C
 - `projects.json`: project summaries, methods, findings, resources, and paper mappings.
 - `scripts/build.py`: page templates and bibliography extraction.
 - `assets/style.css`: responsive design.
-- `assets/site.js`: publication search, category filters, and mobile navigation.
+- `assets/site.js`: publication search, category filters, year-group hiding, and mobile navigation.
 - `assets/publications.bib`: source bibliography copied from the complete Master CV.
-- `assets/anandaswarup-vadapalli-cv.pdf`: unchanged four-page Master CV.
+- `assets/anandaswarup-vadapalli-cv.pdf`: unchanged four-page Master CV (copied from `cv_anandaswarup.pdf`).
+- `assets/anandaswarup-vadapalli-phd-thesis.pdf`: unchanged Ph.D. thesis (March 2025), copied from `~/Documents/PhD/Thesis/thesis_source_files/thesis.pdf`.
 - `site/`: generated static website; serve this directory only.
 
 Run `python3 scripts/build.py` after editing. The build requires Python's standard library; no package installation is needed. Fonts use Google Fonts with local system fallbacks. All body content and navigation work without JavaScript; JavaScript enables filters and the compact mobile menu.
@@ -30,13 +31,13 @@ python3 scripts/check.py
 node --check assets/site.js
 ```
 
-The validation checks all generated local links, assets, anchors, one primary heading per page, and exact coverage of the 17 CV papers across nine project groups.
+The validation checks all generated local links, assets, anchors, one primary heading per page, and exact coverage of every CV paper across the project groups.
 
 ## Content provenance
 
-Source: the complete Master CV (`cv_anandaswarup.tex`, `pubs.bib`, and the four-page PDF), reviewed on 14 October 2026.
+Source: the complete Master CV (`cv_anandaswarup.tex`, `pubs.bib`, and the four-page PDF), reviewed on 14 October 2026 and updated from the revised CV on 11 November 2026.
 
-The site includes only the 17 papers cited in the CV, excluding the uncited 2023 preprint present in the source bibliography. Accepted ACDSA 2027 manuscripts are marked accepted, with no invented publication dates, proceedings metadata, or manuscript links. Findings for the five selected CV projects come from the CV. Other project descriptions use titles and available primary abstracts; no individual contribution or quantitative result is inferred from coauthorship alone.
+The site includes only the 18 papers cited in the CV, excluding the uncited 2023 preprint present in the source bibliography. The LALM caption paper is marked submitted (ERC-LM Workshop at ICASSP 2027) until its notification; accepted ACDSA 2027 manuscripts are marked accepted, with no invented publication dates, proceedings metadata, or manuscript links. Findings for the five selected CV projects come from the CV. Other project descriptions use titles and available primary abstracts; no individual contribution or quantitative result is inferred from coauthorship alone.
 
 Additional primary sources consulted:
 

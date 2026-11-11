@@ -24,6 +24,7 @@ for (const section of document.querySelectorAll('[data-filter-section]')) {
       item.hidden = !(category === 'All' || item.dataset.category === category) || !item.dataset.search.toLocaleLowerCase().includes(query);
       if (!item.hidden) visible++;
     }
+    for (const group of section.querySelectorAll('[data-group]')) group.hidden = !group.querySelector('[data-category]:not([hidden])');
     const noun = search ? 'publication' : 'project';
     section.querySelector('.results-count').textContent = `${visible} ${noun}${visible === 1 ? '' : 's'}`;
     section.querySelector('.empty').hidden = visible !== 0;
